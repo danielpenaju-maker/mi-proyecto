@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <!-- Metadatos esenciales -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Blog sobre Desarrollo Web</title>
+
+  <!-- Tipografía -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Hoja de estilos -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Descripción para buscadores -->
+  <meta name="description" content="Blog sobre Desarrollo Web — artículos, recursos y galerías para aprender HTML, CSS y JavaScript.">
+</head>
+<body>
+  <!-- Header / Navegación común -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Ir a la página principal">
+        <img src="images/Logo.png" alt="Logo Blog Desarrollo Web" class="logo">
+        <span class="brand-title">Blog Desarrollo Web</span>
+      </a>
+
+      <!-- Menú de navegación (misma estructura en todas las páginas) -->
+      <nav class="main-nav" aria-label="Menú principal">
+        <ul>
+          <li><a href="index.html" class="active">Inicio</a></li>
+          <li><a href="galeria.html">Galería</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <!-- Botón hamburguesa para móvil -->
+      <button class="nav-toggle" aria-label="Mostrar menú" aria-expanded="false">
+        <span class="hamburger"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Banner principal -->
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <h1>Blog sobre Desarrollo Web</h1>
+          <p class="lead">
+            Aprenderás HTML5, CSS3, diseño responsivo, accesibilidad y buenas prácticas para crear sitios modernos y profesionales.
+          </p>
+          <p>
+            Encuentra tutoriales, ejemplos prácticos y recursos para mejorar tus proyectos web.
+          </p>
+          <a class="btn btn-primary" href="galeria.html">Explorar la galería</a>
+        </div>
+
+        <div class="hero-image" aria-hidden="true">
+          <!-- Imagen representativa (colocar /images/banner.jpg en proyecto) -->
+          <img src="images/banner.png" alt="Banner representativo de desarrollo web">
+        </div>
+      </div>
+    </section>
+
+    <!-- Últimos artículos -->
+    <section class="latest-articles container" aria-labelledby="ultimos-articulos">
+      <h2 id="ultimos-articulos">Últimos artículos</h2>
+
+      <!-- Tarjetas de artículos -->
+      <div class="articles-grid">
+        <!-- Artículo 1 -->
+        <article class="card">
+          <img src="images/article1.png" alt="Artículo - Diseño responsivo" class="card-img">
+          <div class="card-body">
+            <h3 class="card-title">Diseño responsivo: Guía práctica</h3>
+            <p class="card-excerpt">Aprende a usar flexbox y grid para construir layouts que se adaptan a cualquier pantalla.</p>
+            <a class="card-link" href="#" aria-label="Leer artículo Diseño responsivo">Leer más →</a>
+          </div>
+        </article>
+
+        <!-- Artículo 2 -->
+        <article class="card">
+          <img src="images/article2.jpg" alt="Artículo - Accesibilidad web" class="card-img">
+          <div class="card-body">
+            <h3 class="card-title">Accesibilidad en la web</h3>
+            <p class="card-excerpt">Buenas prácticas ARIA y semántica para que tu sitio sea usable por todos.</p>
+            <a class="card-link" href="#" aria-label="Leer artículo Accesibilidad web">Leer más →</a>
+          </div>
+        </article>
+
+        <!-- Artículo 3 -->
+        <article class="card">
+          <img src="images/article3.png" alt="Artículo - Performance web" class="card-img">
+          <div class="card-body">
+            <h3 class="card-title">Optimización y performance</h3>
+            <p class="card-excerpt">Consejos para mejorar el tiempo de carga y experiencia de usuario.</p>
+            <a class="card-link" href="#" aria-label="Leer artículo Optimización y performance">Leer más →</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Sección CTA secundaria -->
+    <section class="cta container">
+      <h2>¿Listo para crear tu próximo sitio?</h2>
+      <p>Suscríbete para recibir recursos y publicaciones prácticas directamente en tu correo.</p>
+      <form class="subscribe-form" action="#" onsubmit="return false;" aria-label="Formulario de suscripción">
+        <input type="email" name="email" placeholder="Tu correo electrónico" required aria-required="true">
+        <button class="btn btn-secondary" type="submit">Suscribirme</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Footer común -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-info">
+        <h3>Blog Desarrollo Web</h3>
+        <p>Recursos prácticos y artículos para desarrolladores web.</p>
+      </div>
+
+      <div class="footer-links">
+        <h4>Enlaces</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="galeria.html">Galería</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-social" aria-label="Redes sociales">
+        <h4>Síguenos</h4>
+        <ul class="social-list">
+          <li><a href="#" aria-label="Twitter">Twitter</a></li>
+          <li><a href="#" aria-label="GitHub">GitHub</a></li>
+          <li><a href="#" aria-label="LinkedIn">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container copyright">
+      <p>© <span id="year"></span> Blog Desarrollo Web. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Pequeño script para año actual y comportamiento del menú -->
+  <script>
+    // Actualiza el año del footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Toggle menú responsive
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.main-nav');
+    toggle.addEventListener('click', () => {
+      const expanded = toggle.getAttribute('aria-expanded') === 'true' || false;
+      toggle.setAttribute('aria-expanded', !expanded);
+      nav.classList.toggle('open');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Contacto - Blog Desarrollo Web</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <meta name="description" content="Contacto — envía un mensaje al equipo del Blog sobre Desarrollo Web.">
+</head>
+<body>
+  <!-- Header / Navegación -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Ir a la página principal">
+        <img src="images/Logo.png" alt="Logo Blog Desarrollo Web" class="logo">
+        <span class="brand-title">Blog Desarrollo Web</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Menú principal">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="galeria.html">Galería</a></li>
+          <li><a href="contacto.html" class="active">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <button class="nav-toggle" aria-label="Mostrar menú" aria-expanded="false">
+        <span class="hamburger"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Formulario de contacto -->
+  <main>
+    <section class="contact-hero container">
+      <h1>Contacto</h1>
+      <p>¿Tienes dudas, sugerencias o quieres colaborar? Escríbenos.</p>
+    </section>
+
+    <section class="contact-form container" aria-labelledby="contact-form-title">
+      <h2 id="contact-form-title" class="sr-only">Formulario de contacto</h2>
+
+      <!-- Formulario básico con validación HTML5 -->
+      <form id="formContacto" class="form" action="#" method="post" novalidate>
+        <!-- Campo nombre -->
+        <label for="nombre">Nombre</label>
+        <input id="nombre" name="nombre" type="text" placeholder="Tu nombre" required minlength="2" aria-required="true">
+
+        <!-- Campo correo -->
+        <label for="correo">Correo electrónico</label>
+        <input id="correo" name="correo" type="email" placeholder="tucorreo@ejemplo.com" required aria-required="true">
+
+        <!-- Campo mensaje -->
+        <label for="mensaje">Mensaje</label>
+        <textarea id="mensaje" name="mensaje" rows="6" placeholder="Escribe tu mensaje" required minlength="10" aria-required="true"></textarea>
+
+        <!-- Botón enviar -->
+        <button class="btn btn-primary" type="submit">Enviar</button>
+
+        <!-- Área donde se mostrará el mensaje de agradecimiento -->
+        <div id="respuesta" class="respuesta" role="status" aria-live="polite"></div>
+      </form>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-info">
+        <h3>Blog Desarrollo Web</h3>
+        <p>Recursos prácticos y artículos para desarrolladores web.</p>
+      </div>
+
+      <div class="footer-links">
+        <h4>Enlaces</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="galeria.html">Galería</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-social" aria-label="Redes sociales">
+        <h4>Síguenos</h4>
+        <ul class="social-list">
+          <li><a href="#" aria-label="Twitter">Twitter</a></li>
+          <li><a href="#" aria-label="GitHub">GitHub</a></li>
+          <li><a href="#" aria-label="LinkedIn">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container copyright">
+      <p>© <span id="year-3"></span> Blog Desarrollo Web. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Script para manejo simple del formulario (no envía a servidor) -->
+  <script>
+    document.getElementById('year-3').textContent = new Date().getFullYear();
+
+    // Toggle menú responsive
+    const toggle3 = document.querySelectorAll('.nav-toggle')[0];
+    const nav3 = document.querySelectorAll('.main-nav')[0];
+    toggle3.addEventListener('click', () => {
+      const expanded = toggle3.getAttribute('aria-expanded') === 'true' || false;
+      toggle3.setAttribute('aria-expanded', !expanded);
+      nav3.classList.toggle('open');
+    });
+
+    // Manejo del formulario: validación HTML5 y mensaje de agradecimiento
+    const form = document.getElementById('formContacto');
+    const respuesta = document.getElementById('respuesta');
+
+    form.addEventListener('submit', (e) => {
+      // Evitar envío real (no hay backend en este mini-proyecto)
+      e.preventDefault();
+
+      // Forzar la validación nativa del navegador
+      if (!form.checkValidity()) {
+        // Si no es válido, deja que el navegador muestre mensajes. Añade clase para foco visual.
+        form.reportValidity();
+        return;
+      }
+
+      // Si pasa validación, mostrar mensaje de agradecimiento simple.
+      const nombre = document.getElementById('nombre').value.trim();
+      respuesta.classList.add('show');
+      respuesta.innerHTML = `<p>¡Gracias, <strong>${escapeHtml(nombre || 'amigo')}</strong>! Hemos recibido tu mensaje. Te contactaremos pronto.</p>`;
+
+      // Reset del formulario
+      form.reset();
+    });
+
+    // Función simple para evitar inyección en el mensaje mostrado
+    function escapeHtml(text) {
+      const map = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#039;'
+      };
+      return String(text).replace(/[&<>"']/g, m => map[m]);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Galería - Blog Desarrollo Web</title>
+
+  <!-- Tipografía (no modifica style.css, solo importa la fuente) -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Hoja de estilos principal -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <meta name="description" content="Galería de imágenes relacionadas con desarrollo web.">
+</head>
+<body>
+  <!-- Header / Navegación (coincide con las clases del CSS principal) -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Ir a la página principal">
+        <img src="images/Logo.png" alt="Logo Blog Desarrollo Web" class="logo">
+        <span class="brand-title">Blog Desarrollo Web</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Menú principal">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="galeria.html" class="active">Galería</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <button class="nav-toggle" aria-label="Mostrar menú" aria-expanded="false">
+        <span class="hamburger"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Contenido principal -->
+  <main>
+    <!-- Hero / título de la galería -->
+    <section class="gallery-hero">
+      <div class="container">
+        <h2>Galería de Imágenes</h2>
+        <p style="text-align:center; color:var(--muted); margin-top:0.25rem;">
+          Imágenes y ejemplos visuales sobre HTML, CSS, JavaScript y diseño web.
+        </p>
+      </div>
+    </section>
+
+    <!-- Grid de la galería (usa las clases definidas en style.css) -->
+    <section class="container">
+      <div class="grid-gallery" aria-label="Galería de imágenes">
+        <figure class="gallery-item">
+          <img src="images/html5.png" alt="HTML5" loading="lazy">
+          <figcaption>HTML5: la base de toda página web moderna.</figcaption>
+        </figure>
+
+        <figure class="gallery-item">
+          <img src="images/css3.jpg" alt="CSS3" loading="lazy">
+          <figcaption>CSS3: diseño y estilo para sitios atractivos.</figcaption>
+        </figure>
+
+        <figure class="gallery-item">
+          <img src="images/javascript.webp" alt="JavaScript" loading="lazy">
+          <figcaption>JavaScript: interactividad y dinamismo web.</figcaption>
+        </figure>
+
+        <figure class="gallery-item">
+          <img src="images/article1.png" alt="Diseño responsivo" loading="lazy">
+          <figcaption>Diseño responsivo para adaptarse a cualquier dispositivo.</figcaption>
+        </figure>
+
+        <figure class="gallery-item">
+          <img src="images/frameworks.webp" alt="Frameworks" loading="lazy">
+          <figcaption>Frameworks modernos que aceleran el desarrollo.</figcaption>
+        </figure>
+
+        <figure class="gallery-item">
+          <img src="images/uiux.png" alt="Diseño UI/UX" loading="lazy">
+          <figcaption>UI/UX: experiencia de usuario centrada en el diseño.</figcaption>
+        </figure>
+
+        <figure class="gallery-item">
+          <img src="images/code.jpg" alt="Código limpio" loading="lazy">
+          <figcaption>Código limpio y estructurado para proyectos escalables.</figcaption>
+        </figure>
+
+        <figure class="gallery-item">
+          <img src="images/tools.png" alt="Herramientas de desarrollo" loading="lazy">
+          <figcaption>Herramientas que potencian la productividad del desarrollador.</figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer (coincide con las clases del CSS principal) -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-info">
+        <h3>Blog Desarrollo Web</h3>
+        <p>Recursos prácticos y artículos para desarrolladores web.</p>
+      </div>
+
+      <div class="footer-links">
+        <h4>Enlaces</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="galeria.html">Galería</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-social" aria-label="Redes sociales">
+        <h4>Síguenos</h4>
+        <ul class="social-list">
+          <li><a href="#" aria-label="Twitter">Twitter</a></li>
+          <li><a href="#" aria-label="GitHub">GitHub</a></li>
+          <li><a href="#" aria-label="LinkedIn">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container copyright">
+      <p>© <span id="year"></span> Blog Desarrollo Web. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts: año dinámico y toggle del menú (misma lógica que en el resto del sitio) -->
+  <script>
+    // Actualiza el año en el footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Toggle menú responsive
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.main-nav');
+    toggle.addEventListener('click', () => {
+      const expanded = toggle.getAttribute('aria-expanded') === 'true' || false;
+      toggle.setAttribute('aria-expanded', !expanded);
+      nav.classList.toggle('open');
+    });
+  </script>
+</body>
+</html>
